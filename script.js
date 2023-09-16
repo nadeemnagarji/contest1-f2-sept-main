@@ -61,8 +61,8 @@ function removeYoungestAndOldest() {
 
 // 4. Merge two arrays (use a dummy array for demonstration) such that the resulting array has no duplicate professions.
 let dummyArray = [
-  { id: 4, name: 'will', age: 18, profession: 'singer', salary: 1000 },
-  { id: 5, name: 'tom', age: 20, profession: 'developer', salary: 1100 },
+  { id: 4, name: 'will', age: 36, profession: 'singer', salary: 1000 },
+  { id: 5, name: 'tom', age: 35, profession: 'developer', salary: 1100 },
   { id: 6, name: 'rahul', age: 19, profession: 'dancer', salary: 900 },
 ]
 function mergeAndFilterProfessions() {
@@ -227,4 +227,66 @@ function hasRepeatedNames() {
 
   console.log(repeadted);
   //Write your code here, just console.log
+}
+
+
+function PrintDeveloper(){
+  arr.forEach((obj)=>{
+    if(obj.profession==="developer"){
+      console.log(obj.name);
+    }
+  })
+}
+function addData(){
+   inputdata = prompt("Enter the data in the form of object")
+   const newObj = JSON.parse(inputdata);
+  arr.push(newObj)
+  console.log(arr);
+}
+function removeAdmin(){
+let ans = arr.filter((obj)=> obj.profession!=="admin")
+console.log(ans);
+}
+
+function concatenateArray(){
+  let mergedArray = [...arr, ...dummyArray]
+  console.log(mergedArray);
+}
+function averageAge() {
+    let avgAge = 0;
+    arr.forEach((obj)=>{
+      avgAge += obj.age
+    }
+    )
+
+    console.log((avgAge/arr.length));
+}
+function updateJohnsProfession() {
+ let index = -1 
+ arr.forEach(((obj,i)=>{
+  if(obj.name==='john'){
+    index = i
+  }
+ }))
+ arr[index].profession = 'manager'
+ console.log(arr);
+}
+
+function uniqueProfessions(){
+  let unique = {}
+
+  let ans = arr.filter((obj)=>{
+     if(!unique[obj.profession]){
+      unique[obj.profession] = true;
+      return true;
+     }else{
+      return false
+     }
+  })
+
+  console.log(ans);
+}
+function checkAgeAbove25(){
+  let ans = arr.filter((obj)=> obj.age>25)
+  console.log(ans);
 }
