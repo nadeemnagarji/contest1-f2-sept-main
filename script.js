@@ -171,7 +171,10 @@ function capitalizeLongestNamedPersonProfession() {
 // 11. Create a function that shuffles the array in a random order.
 function shuffleArray() {
   //Write your code here, just console.log
-}
+  let randomNum = Math.floor(Math.random() * arr.length +1)
+  
+
+} 
 
 // 12. Create a function that rotates the array to the right by n steps, where n is provided as an argument.
 function rotateArray(n) {
@@ -188,17 +191,40 @@ function rotateArray(n) {
   }
   console.log(arr);
   //Write your code here, just console.log
-} rotateArray(4)
+} 
 
 // 13. Create a function that finds the person with the closest age to a given number.
 function findClosestAge(age) {
    //Write your code here, just console.log
+   let gap = 100
+   let ansAge = 0
+   let index = -1
+ arr.forEach((obj,i) =>{
+      if(Math.abs(obj.age - age) <gap){
+        gap = Math.abs(obj.age - age)
+        ansAge = obj.age
+        index = i
+      }
+ })
 
+ let ans = arr[index].name
+ console.log(ans);
  
- 
-}
+} 
 
 // 14. Create a function that checks if there's any repeated name in the array.
 function hasRepeatedNames() {
+  let repeadted = false
+  let repeatednames = {}
+
+  arr.forEach((obj)=>{
+    if(repeatednames.hasOwnProperty(obj.name)){
+      repeadted = true;
+    }else{
+      repeatednames[obj.name] = 1
+    }
+  })
+
+  console.log(repeadted);
   //Write your code here, just console.log
 }
